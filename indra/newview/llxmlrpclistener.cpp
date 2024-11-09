@@ -353,7 +353,7 @@ LLXMLRPCListener::LLXMLRPCListener(const std::string& pumpname)
 : mBoundListener(LLEventPumps::instance().obtain(pumpname).listen
 (
     "LLXMLRPCListener",
-    [&](const LLSD& command) -> bool
+    [this](const LLSD& command) -> bool
     {
         // Allocate a new heap Poller, but do not save a pointer to it. Poller
         // will check its own status and free itself on completion of the request.
